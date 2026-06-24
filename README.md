@@ -1,75 +1,182 @@
-# React + TypeScript + Vite
+🍽 Resto CodexNM
+Premium Restaurant Automation PWA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Resto CodexNM — это современное Progressive Web Application (PWA) для автоматизации ресторана уровня fine dining / Michelin.
+Приложение построено на React 19 + Vite + TypeScript и включает 4 интерфейса:
 
-Currently, two official plugins are available:
+📱 Guest (QR Menu)
+🧑‍🍳 Kitchen (KDS)
+🧑‍💼 Waiter Terminal
+📊 Admin Dashboard
+Проект реализован в единой кодовой базе с глобальным состоянием через Zustand и готов к запуску как полноценное PWA-приложение.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🚀 Tech Stack
+Core
+React 19
+TypeScript
+Vite 8
+React Router DOM v7
+Zustand (Global State)
+UI / UX
+TailwindCSS v4
+Framer Motion
+Lucide React (Icons)
+PWA
+vite-plugin-pwa
+Service Worker
+Offline support
+Installable on mobile devices
+Code Quality
+ESLint 10
+TypeScript ESLint
+React Hooks lint rules
+📦 Installation
+Bash
 
-## React Compiler
+# 1. Clone repository
+git clone <your-repo-url>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 2. Go into project
+cd resto-codexnm
 
-## Expanding the ESLint configuration
+# 3. Install dependencies
+npm install
+🧑‍💻 Development
+Bash
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+npm run dev
+Runs Vite development server.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Default:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+text
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+http://localhost:5173
+🏗 Production Build
+Bash
 
-```
+npm run build
+This runs:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+TypeScript project build (tsc -b)
+Vite production build
+Output directory:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+text
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+/dist
+To preview production build locally:
 
-```
+Bash
+
+npm run preview
+📱 PWA Features
+Installable on Android / iOS (Add to Home Screen)
+Service Worker enabled
+Offline caching support
+Optimized build for production
+App-like experience
+The PWA configuration is handled via:
+
+text
+
+vite-plugin-pwa
+🧭 Application Architecture
+The application is structured as a role-based system.
+
+Routes
+Route	Role	Description
+/menu/:tableId	Guest	QR-based digital menu
+/waiter	Waiter	Order management terminal
+/kitchen	Kitchen	Kitchen Display System
+/admin	Admin	Revenue + Stop-list control
+🗂 Project Structure (Recommended)
+text
+
+src/
+│
+├── components/
+├── pages/
+│   ├── GuestMenu.tsx
+│   ├── WaiterTerminal.tsx
+│   ├── KitchenKDS.tsx
+│   └── AdminDashboard.tsx
+│
+├── store/
+│   └── store.ts
+│
+├── router/
+│   └── App.tsx
+│
+├── styles/
+│
+└── main.tsx
+🧠 State Management
+Global state is handled via:
+
+text
+
+Zustand
+Store responsibilities:
+
+Menu items
+Orders
+Order status updates
+Stop-list management
+Realtime simulation between roles
+🎨 Design Philosophy
+Minimalist
+Premium aesthetic
+High contrast
+Black / White / Orange accent system
+Clean spacing and typography
+UI built with:
+
+Tailwind utility-first approach
+Framer Motion for smooth transitions
+✅ Linting
+Run ESLint:
+
+Bash
+
+npm run lint
+Configured with:
+
+@eslint/js
+typescript-eslint
+react-hooks rules
+react-refresh rules
+🌍 Deployment
+This project can be deployed to:
+
+✅ Vercel
+✅ Netlify
+✅ Cloudflare Pages
+✅ Docker (optional containerization)
+Example (Vercel):
+
+Bash
+
+npm install -g vercel
+vercel
+📊 Target Use Case
+Designed for:
+
+Fine dining restaurants
+Michelin-level service flow
+Premium hospitality environments
+Modern POS replacement systems
+Real-time kitchen synchronization
+🔮 Future Improvements (Optional Roadmap)
+Backend integration (Supabase / Firebase)
+Realtime WebSocket support
+Authentication roles
+Payment integration (Stripe)
+Multi-language support
+Table floor map visualization
+Inventory automation
+📜 License
+Private project.
+
+👨‍💻 Author
+Developed as a modern PWA restaurant automation system powered by React 19 + Vite 8.
